@@ -1,8 +1,10 @@
-const warplaneRankings = {
-
-}
+const warplaneRankings = {}
 
 warplaneRankings.apiKey = 'fb723aa882d3a2fa5be1190069572588';
+
+warplaneRankings.displayResults = function() {
+    
+}
 
 warplaneRankings.getPlaneStats = function (planeIds) {
     $.ajax({
@@ -14,7 +16,7 @@ warplaneRankings.getPlaneStats = function (planeIds) {
             plane_id: planeIds
         }
     }).then(function(response) {
-        console.log(response);
+        warplaneRankings.planeResults = Object.values(response.data);
     })
 }
 
@@ -31,10 +33,8 @@ warplaneRankings.getPlaneData = function (nation, type) {
     }).then(function(response) {
         const planeIds = Object.keys(response.data);
         warplaneRankings.getPlaneStats(planeIds.join(','));
-
     })
 }
-
 
 warplaneRankings.init = function () {
     $('form').on('submit', function (e) {
@@ -42,12 +42,11 @@ warplaneRankings.init = function () {
         const $userNation = $('input[name = nation]:checked').attr("id");
         const $userType = $('input[name = type]:checked').attr("id");
         warplaneRankings.getPlaneData($userNation, $userType);
+        warplaneRankings.displayResults();
 
     })
 }
 
 $(function () {
     warplaneRankings.init();
-})
-
-
+});
