@@ -5,7 +5,7 @@ warplaneRankings.apiKey = 'fb723aa882d3a2fa5be1190069572588';
 warplaneRankings.maxResults = 8;
 
 warplaneRankings.displayResults = function () {
-    let htmlToAppend = "";
+    let htmlToAppend = '';
     warplaneRankings.planeResults.forEach(function(plane, i){
         if (i >= warplaneRankings.maxResults) {
             return;
@@ -24,6 +24,18 @@ warplaneRankings.displayResults = function () {
 
 }
 
+warplaneRankings.sortByStat = function(chosenStat) {
+    // the array.sort() here is used to rearrange the planeResults array.
+    warplaneRankings.planeResults.sort(function(planeA, planeB) {
+        // The return checks to see if the difference of the stats are positive or negative.
+        // A negative value puts planeA to an index further down from planeB.
+        // So planeB.stats - planeA.stats will yield an array sorted from highest to lowest
+        // planeA.stats - planeB.stats will yield an array sorted from lowest to highest
+        // planeA.stats or planeB.stats doesn't actually exist, these are just pseudo code examples
+        return planeB.features[chosenStat] - planeA.features[chosenStat];
+    });
+}
+
 warplaneRankings.getPlaneStats = function (planeIds) {
     $.ajax({
         url: 'https://api.worldofwarplanes.com/wowp/encyclopedia/planeinfo/',
@@ -35,9 +47,11 @@ warplaneRankings.getPlaneStats = function (planeIds) {
         }
     }).then(function (response) {
         warplaneRankings.planeResults = Object.values(response.data);
-        console.log(warplaneRankings.planeResults);
+        
+        warplaneRankings.sortByStat($('#stats').val());
         warplaneRankings.displayResults();
 
+        console.log(warplaneRankings.planeResults);
     })
 }
 
@@ -60,12 +74,20 @@ warplaneRankings.getPlaneData = function (nation, type) {
 warplaneRankings.init = function () {
     $('form').on('submit', function (e) {
         e.preventDefault();
-        const $userNation = $('input[name = nation]:checked').attr("id");
-        const $userType = $('input[name = type]:checked').attr("id");
+        const $userNation = $('input[name = nation]:checked').attr('id');
+        const $userType = $('input[name = type]:checked').attr('id');
         warplaneRankings.getPlaneData($userNation, $userType);
+    });
 
-    })
-
+    // Attach event listener to selection menu to rearrange the planeResults array when there's a change.
+    $('#stats').on('change', function() {
+        // This conditional is to prevent an error.
+        // Only do a sort and redisplay if the planeResults array exists.
+        if(warplaneRankings.planeResults){
+            warplaneRankings.sortByStat($(this).val());
+            warplaneRankings.displayResults();
+        }
+    });
 }
 
 $(function () {
