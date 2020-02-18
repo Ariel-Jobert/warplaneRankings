@@ -1,0 +1,19 @@
+body {
+    font-size: 62.5%;
+    font-family: $oswald;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.wrapper {
+    max-width: 1280px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1, h2  {
+    margin: 0;
+    padding: 0;
+}
