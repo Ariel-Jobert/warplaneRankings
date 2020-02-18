@@ -2,8 +2,26 @@ const warplaneRankings = {}
 
 warplaneRankings.apiKey = 'fb723aa882d3a2fa5be1190069572588';
 
-warplaneRankings.displayResults = function() {
-    
+warplaneRankings.maxResults = 8;
+
+warplaneRankings.displayResults = function () {
+    let htmlToAppend = "";
+    warplaneRankings.planeResults.forEach(function(plane, i){
+        if (i >= warplaneRankings.maxResults) {
+            return;
+        }
+        htmlToAppend += `          
+        <li>
+            <div>
+                <img src="${plane.images.large}" alt="${plane.name}">
+            </div>
+            <h3>${plane.name}</h3>
+        </li>
+    `
+    })
+
+    $('.warplanesContainer').html(htmlToAppend);
+
 }
 
 warplaneRankings.getPlaneStats = function (planeIds) {
@@ -15,8 +33,11 @@ warplaneRankings.getPlaneStats = function (planeIds) {
             application_id: this.apiKey,
             plane_id: planeIds
         }
-    }).then(function(response) {
+    }).then(function (response) {
         warplaneRankings.planeResults = Object.values(response.data);
+        console.log(warplaneRankings.planeResults);
+        warplaneRankings.displayResults();
+
     })
 }
 
@@ -30,7 +51,7 @@ warplaneRankings.getPlaneData = function (nation, type) {
             nation: nation,
             type: type
         }
-    }).then(function(response) {
+    }).then(function (response) {
         const planeIds = Object.keys(response.data);
         warplaneRankings.getPlaneStats(planeIds.join(','));
     })
@@ -42,11 +63,12 @@ warplaneRankings.init = function () {
         const $userNation = $('input[name = nation]:checked').attr("id");
         const $userType = $('input[name = type]:checked').attr("id");
         warplaneRankings.getPlaneData($userNation, $userType);
-        warplaneRankings.displayResults();
 
     })
+
 }
 
 $(function () {
     warplaneRankings.init();
 });
+
