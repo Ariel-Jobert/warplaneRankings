@@ -11,7 +11,7 @@ warplaneRankings.displayResults = function () {
             return;
         }
         htmlToAppend += `          
-        <li>
+        <li data-index=${i}>
             <div>
                 <img src="${plane.images.large}" alt="${plane.name}">
             </div>
@@ -21,7 +21,6 @@ warplaneRankings.displayResults = function () {
     })
 
     $('.warplanesContainer').html(htmlToAppend);
-
 }
 
 warplaneRankings.sortByStat = function(chosenStat) {
@@ -33,6 +32,15 @@ warplaneRankings.sortByStat = function(chosenStat) {
         // planeA.stats - planeB.stats will yield an array sorted from lowest to highest
         // planeA.stats or planeB.stats doesn't actually exist, these are just pseudo code examples
         return planeB.features[chosenStat] - planeA.features[chosenStat];
+    });
+}
+
+// Add event listeners to results
+warplaneRankings.addListeners = function(element) {
+    element.on('click', function() {
+        // stores the index of the clicked plane
+        const $planeIndex = parseInt($(this).attr('data-index'));
+        console.log(warplaneRankings.planeResults[$planeIndex]);
     });
 }
 
@@ -50,7 +58,7 @@ warplaneRankings.getPlaneStats = function (planeIds) {
         
         warplaneRankings.sortByStat($('#stats').val());
         warplaneRankings.displayResults();
-
+        warplaneRankings.addListeners($('.warplanesContainer li'));
         console.log(warplaneRankings.planeResults);
     })
 }
