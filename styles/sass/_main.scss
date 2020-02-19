@@ -1,77 +1,68 @@
-.overlay{
-    width: 100%;
-    height: 70vh;
-    background: rgba($backgroundSecondary, $alpha: 0.7);
-}
-
 .options {
     height: 70vh;
-    // background: $backgroundSecondary;
-    background-image: url(../assets/backgroundTexture.jpg);
+    background: linear-gradient(rgba($backgroundSecondary, $alpha: 0.7)), url(../assets/backgroundTexture.jpg);
     background-size: cover;
     background-position: center;
     background-color: rgba(0, 0, 0, 0.5);
+        .container {
+            max-width: 700px;
+            @include centerFlex;
+            width: 100%;
+            // display: flex;
+            // justify-content: center;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            background: rgba(0,0,0,0.7);
+            box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
+            border-radius: 7px;
+            margin: 0 auto;
+            padding: 40px;
+        }
 }
 
-.container {
-    position: relative;
-    top: -420px;
-    background: rgba(0,0,0,0.7);
-    box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
-    // border: 1px solid #000;
-    border-radius: 7px;
+.formHolder {
     width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    padding: 40px;
-}
-
-form div{
-    display: flex;
-    // justify-content: center;
 }
 
 .selections {
+    @include centerFlex;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     margin: 40px 0;
+    font-family: $mono;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+        h2 {
+            font-family: $oswald;
+            font-size: 2rem;
+            color: $accentColor;
+            width: 25%;
+        }
+}
+
+
+input[type=radio] {
+    display: none;
+        &:checked + label {
+            color: rgb(15, 180, 15);
+        }
+    } 
+
+label {
+    width: 25%;
 }
 
 
 .selectionsBtn {
     width: 100%;
-    display: flex;
-    justify-content: center;
+    @include centerFlex;
+    // display: flex;
+    // justify-content: center;
+    background: none;
+    border-radius: 0;
+    padding: 0;
 }
-
-
-
-
-// *************************** TEST
-// .radioWrapper {
-//     position:absolute;
-//         input {
-//             visibility:hidden; 
-//             width:0;
-//                 label:hover {
-//                     font-weight:bold
-//                 }
-//         }
-// }
-
-// .radioWrapper input:checked + label {
-//     font-weight:bold; 
-//     color: green;
-// }
-
-
-
-// #typeWrap1, #countryWrap1 {
-//     left: 160px;
-// }
-// #typeWrap2, #countryWrap2 {
-//     left: 240px; 
-// }
-// #typeWrap3, #countryWrap3 {
-//     left: 355px; 
-// }

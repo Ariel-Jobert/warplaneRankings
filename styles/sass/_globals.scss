@@ -9,19 +9,21 @@ ul {
     padding-left: 0;
 }
 
-.wrapper {
-    max-width: 1280px;
-    width: 80%;
-    margin: 0 auto;
-}
 
 h1, h2  {
     margin: 0;
     padding: 0;
 }
 
+.wrapper {
+    max-width: 1280px;
+    width: 80%;
+    margin: 0 auto;
+}
+
 button {
     text-transform: uppercase;
+    font-family: $mono;
     font-size: 0.8rem;
     display:block;
     height: 80px;
@@ -35,5 +37,4 @@ button {
             background-image: radial-gradient(red, rgb(116, 5, 5));
             font-size: 0.75rem;
         }
-
 }
