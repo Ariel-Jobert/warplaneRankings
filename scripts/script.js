@@ -38,7 +38,9 @@ warplaneRankings.sortByStat = function(chosenStat) {
 // Add event listeners to results
 warplaneRankings.addListeners = function(element) {
     const $planeDetails = $('.warplaneDetails');
+    
     element.on('click', function() {
+        $planeDetails.css('display', 'block');
         // stores the index of the clicked plane
         const $planeIndex = parseInt($(this).attr('data-index'));
         
@@ -136,6 +138,11 @@ warplaneRankings.init = function () {
             warplaneRankings.sortByStat($(this).val());
             warplaneRankings.displayResults();
         }
+    });
+
+    // temporary for testing: hides modal when clicked
+    $('.warplaneDetails').on('click', function() {
+        $(this).css('display', 'none');
     });
 }
 
