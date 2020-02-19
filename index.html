@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/style.css">
   <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/5568dacc53.js" crossorigin="anonymous"></script>
   <title>WoWP | Warplane Rankings</title>
 </head>
 
@@ -14,8 +15,12 @@
     <div class="wrapper">
       <div class="headerText">
         <h1>World of Warplanes</h1>
-        <h2>War Plane Rankings</h2>
+        <h2>-War Plane Rankings-</h2>
       </div>
+      <ul class="fabs">
+        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+      </ul>
     </div>
   </header>
 
@@ -23,12 +28,13 @@
 
   <main>
     <section class="options">
+      <div class="overlay"></div>
       <div class="wrapper">
         <div class="container">
           <div class="formHolder">
 
             <form action="">
-              <div class="selections">
+              <div class="selections selectionsRadio">
                 <h2>Nation</h2>
                 <input type="radio" name="nation" id="usa">
                 <label for="usa">USA</label>
@@ -38,21 +44,66 @@
 
                 <input type="radio" name="nation" id="uk">
                 <label for="uk">UK</label>
+
+                <!-- *****************************************SAMPLE TEST  -->
+<!-- 
+                <div class="radioWrapper" id="countryWrap1">
+                  <input type="radio" name="nation" id="usa">
+                  <label for="usa">USA</label>
+                </div>
+
+                <div class="radioWrapper" id="countryWrap2">
+                  <input type="radio" name="nation" id="germany">
+                  <label for="germany">Germany</label>
+                </div>
+
+                <div class="radioWrapper" id="countryWrap3">
+                  <input type="radio" name="nation" id="uk">
+                  <label for="uk">UK</label>
+                </div> -->
+
+
               </div>
 
-              <div class="selections">
+
+
+              <div class="selections selectionsRadio">
                 <h2>Plane Type</h2>
                 <input type="radio" name="type" id="bomber">
-                <label for="bomber">Bomber</label>
+                <label for="bomber">Bomber</label> -->
 
                 <input type="radio" name="type" id="fighter">
-                <label for="figther">Fighter</label>
+                <label for="figther">Fighter</label> 
 
                 <input type="radio" name="type" id="assault">
                 <label for="assault">Assault</label>
+
+
+                <!-- *****************************************SAMPLE TEST  -->
+                <!-- <div class="radioWrapper" id="typeWrap1">
+                  <input type="radio" name="type" id="bomber">
+                  <label for="bomber">Bomber</label>
+                </div>
+
+                <div class="radioWrapper" id="typeWrap2">
+                  <input type="radio" name="type" id="fighter">
+                  <label for="fighter">Fighter</label>
+                </div>
+
+                <div class="radioWrapper" id="typeWrap3">
+                  <input type="radio" name="type" id="assault">
+                  <label for="assault">Assault</label>
+                </div> -->
+
+                <!-- *****************************************SAMPLE TEST  -->
+
+
+
+
               </div>
 
-              <div class="selections">
+
+              <div class="selections selectionsDrop">
                 <label for="stats">Sort by</label>
                 <select name="stats" id="stats">
                   <option value="dps">Fire Power</option>
@@ -63,59 +114,59 @@
                 </select>
               </div>
 
-              <div class="selections">
+              <div class="selections selectionsBtn">
                 <button type="submit">Search</button>
               </div>
 
             </form>
           </div>
         </div>
-      </section>
+    </section>
 
 
 
-      <section class="results">
-        <div>
-          <h2>Results</h2>
+    <section class="results">
+      <div>
+        <h2>Results</h2>
+      </div>
+
+      <ul class="warplanesContainer">
+        <!-- Results go here!!!!!!!  -->
+        <!-- Modal -->
+
+
+
+
+      </ul>
+    </section>
+
+
+    <div class="warplaneDetails">
+      <div class="pictureAndText">
+
+        <div class="planePicture">
+          <img src="" alt=""> <!-- plane image goes here-->
         </div>
 
-        <ul class="warplanesContainer">
-          <!-- Results go here!!!!!!!  -->
-          <!-- Modal -->
-
-
-
-
-        </ul>
-      </section>
-
-
-      <div class="warplaneDetails">
-        <div class="pictureAndText">
-
-          <div class="planePicture">
-            <img src="" alt=""> <!-- plane image goes here-->
-          </div>
-
-          <div class="planeDescription">
-            <h3>
-              <!-- plane name goes here-->
-            </h3>
-            <p>
-              <!-- plane description goes here-->
-            </p>
-          </div>
-        </div>
-
-        <div class="planeStats">
-          <h3>Stats</h3>
-          
-          <ul>
-            <!-- dynamically added stats-->
-          </ul>
-
+        <div class="planeDescription">
+          <h3>
+            <!-- plane name goes here-->
+          </h3>
+          <p>
+            <!-- plane description goes here-->
+          </p>
         </div>
       </div>
+
+      <div class="planeStats">
+        <h3>Stats</h3>
+
+        <ul>
+          <!-- dynamically added stats-->
+        </ul>
+
+      </div>
+    </div>
 
     </div>
   </main>
