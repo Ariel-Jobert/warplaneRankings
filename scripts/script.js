@@ -37,10 +37,51 @@ warplaneRankings.sortByStat = function(chosenStat) {
 
 // Add event listeners to results
 warplaneRankings.addListeners = function(element) {
+    const $planeDetails = $('.warplaneDetails');
     element.on('click', function() {
         // stores the index of the clicked plane
         const $planeIndex = parseInt($(this).attr('data-index'));
-        console.log(warplaneRankings.planeResults[$planeIndex]);
+        
+        const htmlString = `
+        <div class="pictureAndText">
+            <div class="planePicture">
+                <img src="${warplaneRankings.planeResults[$planeIndex].images.large}" alt="${warplaneRankings.planeResults[$planeIndex].name}"> <!-- plane image goes here-->
+            </div>
+            <div class="planeDescription">
+                <h3>${warplaneRankings.planeResults[$planeIndex].name}</h3>
+                <p>${warplaneRankings.planeResults[$planeIndex].description}</p>
+            </div>
+        </div>
+        <div class="planeStats">
+            <h3>Stats</h3>
+            <ul>
+                
+            </ul>
+        </div>
+        `;
+
+        $('.warplaneDetails').html(htmlString);
+
+        // variable that holds the HTML for the stats
+        let statString = '';
+
+        // Generates blocks and assigns contents based on the options available to user
+        $('#stats option').each(function() {
+            statString += `
+                <li>
+                    <h4>${$(this).text()}</h4>
+                    <p>${warplaneRankings.planeResults[$planeIndex].features[$(this).val()]}</p>
+                </li>
+            `;
+        });
+
+        $('.planeStats ul').html(statString);
+
+        // adds appropriate suffix to the stat numbers
+        $('h4:contains("Fire Power")').next().append(' DPS');
+        $('h4:contains("Max Speed")').next().append(' km/h');
+        $('h4:contains("Weight")').next().append(' kg');
+
     });
 }
 
