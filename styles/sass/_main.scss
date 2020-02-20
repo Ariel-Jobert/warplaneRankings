@@ -5,18 +5,16 @@
     background-position: center;
     background-color: rgba(0, 0, 0, 0.5);
         .container {
-            max-width: 700px;
             @include centerFlex;
+            max-width: 700px;
             width: 100%;
-            // display: flex;
-            // justify-content: center;
             text-transform: uppercase;
             font-size: 1.2rem;
             background: rgba(0,0,0,0.7);
             box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
-            border-radius: 7px;
+            border-radius: 0 0 7px 7px;
             margin: 0 auto;
-            padding: 40px;
+            padding: 38px;
         }
 }
 
@@ -26,10 +24,7 @@
 
 .selections {
     @include centerFlex;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    margin: 40px 0;
+    margin-bottom: 20px;
     font-family: $mono;
     font-size: 1.5rem;
     text-align: center;
@@ -44,25 +39,55 @@
         }
 }
 
-
 input[type=radio] {
     display: none;
         &:checked + label {
-            color: rgb(15, 180, 15);
+            color: #63B92E;
         }
     } 
 
 label {
     width: 25%;
+        &:hover {
+            cursor: pointer; 
+        }
+}
+
+.selectionsDrop label {
+    cursor: default;
+}
+
+
+select {
+    // -webkit-appearance: none;
+    // -moz-appearance: none;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    // appearance: none;       
+    font-family: $mono;
+    font-weight: 600;
+    text-align: center;
+    background: $backgroundSecondary;
+    background-image: url(""); /* Add custom arrow */
+    background-position: right;
+    background-repeat: no-repeat; 
+    background-size: 20px; 
+    cursor: pointer; 
 }
 
 
 .selectionsBtn {
     width: 100%;
     @include centerFlex;
-    // display: flex;
-    // justify-content: center;
     background: none;
     border-radius: 0;
     padding: 0;
+        button {
+            @include redAlertButton;
+                &:hover {
+                    cursor: pointer; 
+                }
+        }
 }
+

@@ -236,6 +236,10 @@ html {
 }
 
 body {
+  color: blueviolet;
+}
+
+body {
   font-size: 62.5%;
   font-family: "Oswald", sans-serif;
   color: #fff;
@@ -255,26 +259,6 @@ h1, h2 {
   max-width: 1280px;
   width: 80%;
   margin: 0 auto;
-}
-
-button {
-  text-transform: uppercase;
-  font-family: "PT Mono", monospace;
-  font-size: 0.8rem;
-  display: block;
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
-  border: 5px outset #808080;
-  background-image: radial-gradient(red, #660808);
-  font-weight: 600;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
-button:active {
-  background-image: radial-gradient(red, #740505);
-  font-size: 0.75rem;
 }
 
 header {
@@ -325,7 +309,7 @@ header {
       -ms-flex-align: center;
           align-items: center;
   font-size: 1.2rem;
-  margin-top: 12px;
+  margin: 10px 0;
 }
 
 .fabs li {
@@ -350,7 +334,6 @@ header {
 }
 
 .options .container {
-  max-width: 700px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -360,15 +343,16 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-width: 700px;
   width: 100%;
   text-transform: uppercase;
   font-size: 1.2rem;
   background: rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.75);
           box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.75);
-  border-radius: 7px;
+  border-radius: 0 0 7px 7px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 38px;
 }
 
 .formHolder {
@@ -385,7 +369,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 40px 0;
+  margin-bottom: 20px;
   font-family: "PT Mono", monospace;
   font-size: 1.5rem;
   text-align: center;
@@ -406,11 +390,35 @@ input[type=radio] {
 }
 
 input[type=radio]:checked + label {
-  color: #0fb40f;
+  color: #63B92E;
 }
 
 label {
   width: 25%;
+}
+
+label:hover {
+  cursor: pointer;
+}
+
+.selectionsDrop label {
+  cursor: default;
+}
+
+select {
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  font-family: "PT Mono", monospace;
+  font-weight: 600;
+  text-align: center;
+  background: #808080;
+  background-image: url("");
+  /* Add custom arrow */
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  cursor: pointer;
 }
 
 .selectionsBtn {
@@ -427,4 +435,28 @@ label {
   background: none;
   border-radius: 0;
   padding: 0;
+}
+
+.selectionsBtn button {
+  text-transform: uppercase;
+  font-family: "PT Mono", monospace;
+  font-size: 0.8rem;
+  display: block;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 5px outset #808080;
+  background-image: radial-gradient(red, #660808);
+  font-weight: 600;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.selectionsBtn button:active {
+  background-image: radial-gradient(red, #740505);
+  font-size: 0.75rem;
+}
+
+.selectionsBtn button:hover {
+  cursor: pointer;
 }
