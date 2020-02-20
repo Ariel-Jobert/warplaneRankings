@@ -89,3 +89,26 @@ select {
         }
 }
 
+//       RESULTS SECTION        //
+
+.results {
+    background: $backgroundPrimary;
+    h2 {
+        display: inline;
+        font-size: 17rem;
+        border-bottom:6px solid $accentColor;
+        width: 100%;
+    }
+}
+
+.warplanesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+        li {
+            @include centerFlex;
+            width: 25%;
+        }
+
+}
+
