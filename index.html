@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Mono&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/5568dacc53.js" crossorigin="anonymous"></script>
   <title>WoWP | Warplane Rankings</title>
 </head>
 
@@ -14,10 +15,16 @@
     <div class="wrapper">
       <div class="headerText">
         <h1>World of Warplanes</h1>
-        <h2>War Plane Rankings</h2>
+        <h2>-War Plane Rankings-</h2>
       </div>
+      <ul class="fabs">
+        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+      </ul>
     </div>
   </header>
+
+
 
   <main>
     <div class="modal">
@@ -31,8 +38,8 @@
         <div class="container">
           <div class="formHolder">
             <form action="">
-              <div>
-                <h2>Nations</h2>
+              <div class="selections selectionsRadio">
+                <h2>Nation</h2>
                 <input type="radio" name="nation" id="usa">
                 <label for="usa">USA</label>
 
@@ -43,7 +50,9 @@
                 <label for="uk">UK</label>
               </div>
 
-              <div>
+
+
+              <div class="selections selectionsRadio">
                 <h2>Plane Type</h2>
                 <input type="radio" name="type" id="bomber">
                 <label for="bomber">Bomber</label>
@@ -55,9 +64,11 @@
                 <label for="assault">Assault</label>
               </div>
 
-              <div>
+
+              <div class="selections selectionsDrop">
                 <label for="stats">Sort by</label>
                 <select name="stats" id="stats">
+                  <i class="fas fa-chevron-down"></i>
                   <option value="dps">Fire Power</option>
                   <option value="hp">Hit Points</option>
                   <option value="max_speed">Max Speed</option>
@@ -66,7 +77,7 @@
                 </select>
               </div>
 
-              <div>
+              <div class="selections selectionsBtn">
                 <button type="submit">Search</button>
               </div>
 
@@ -74,7 +85,6 @@
           </div>
         </div>
       </section>
-
       <section class="results">
         <div>
           <h2>Results</h2>
