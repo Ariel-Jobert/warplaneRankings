@@ -27,11 +27,16 @@
 
 
   <main>
-    <section class="options">
-      <div class="wrapper">
+    <div class="modal">
+      <button class="exit" tabindex="1">exit</button>
+      <div class="warplaneDetails">
+
+      </div>
+    </div>
+    <div class="wrapper">
+      <section class="options">
         <div class="container">
           <div class="formHolder">
-
             <form action="">
               <div class="selections selectionsRadio">
                 <h2>Nation</h2>
@@ -43,8 +48,6 @@
 
                 <input type="radio" name="nation" id="uk">
                 <label for="uk">UK</label>
-
-
               </div>
 
 
@@ -55,14 +58,10 @@
                 <label for="bomber">Bomber</label>
 
                 <input type="radio" name="type" id="fighter">
-                <label for="fighter">Fighter</label> 
+                <label for="fighter">Fighter</label>
 
                 <input type="radio" name="type" id="assault">
                 <label for="assault">Assault</label>
-
-
-
-
               </div>
 
 
@@ -70,11 +69,11 @@
                 <label for="stats">Sort by</label>
                 <select name="stats" id="stats">
                   <i class="fas fa-chevron-down"></i>
-                  <option value="dps">FIRE POWER</option>
-                  <option value="hp">HIT POINTS</option>
-                  <option value="max_speed">MAX</option>
-                  <option value="maneuverability">MANEUVERABILITY</option>
-                  <option value="mass">WEIGHT</option>
+                  <option value="dps">Fire Power</option>
+                  <option value="hp">Hit Points</option>
+                  <option value="max_speed">Max Speed</option>
+                  <option value="maneuverability">Maneuverability</option>
+                  <option value="mass">Weight</option>
                 </select>
               </div>
 
@@ -85,53 +84,16 @@
             </form>
           </div>
         </div>
-    </section>
-
-
-
-    <section class="results">
-      <div>
-        <h2>Results</h2>
-      </div>
-
-      <ul class="warplanesContainer">
-        <!-- Results go here!!!!!!!  -->
-        <!-- Modal -->
-
-
-
-
-      </ul>
-    </section>
-
-
-    <div class="warplaneDetails">
-      <div class="pictureAndText">
-
-        <div class="planePicture">
-          <img src="" alt=""> <!-- plane image goes here-->
+      </section>
+      <section class="results">
+        <div>
+          <h2>Results</h2>
         </div>
 
-        <div class="planeDescription">
-          <h3>
-            <!-- plane name goes here-->
-          </h3>
-          <p>
-            <!-- plane description goes here-->
-          </p>
-        </div>
-      </div>
-
-      <div class="planeStats">
-        <h3>Stats</h3>
-
-        <ul>
-          <!-- dynamically added stats-->
+        <ul class="warplanesContainer">
+          <!-- Results go here!!!!!!!  -->
         </ul>
-
-      </div>
-    </div>
-
+      </section>
     </div>
   </main>
 
@@ -139,12 +101,8 @@
     <p>Wargaming &copy; 2020</p>
   </footer>
 
-
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-
   <script src="scripts/script.js"></script>
-
-
 </body>
 
 </html>
