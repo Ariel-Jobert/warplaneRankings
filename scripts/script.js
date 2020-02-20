@@ -153,6 +153,7 @@ warplaneRankings.init = function () {
         if(warplaneRankings.planeResults){
             warplaneRankings.sortByStat($(this).val());
             warplaneRankings.displayResults();
+            warplaneRankings.addListeners($('.warplanesContainer li'));
         }
     });
 

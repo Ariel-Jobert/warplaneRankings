@@ -3,6 +3,7 @@ html {
 }
 
 body {
+    font-size: 1.6rem;
     font-family: $oswald;
     color: $primaryText;
 }
@@ -15,6 +16,10 @@ ul {
 h1, h2  {
     margin: 0;
     padding: 0;
+}
+
+a {
+    color: $primaryText;
 }
 
 img {
