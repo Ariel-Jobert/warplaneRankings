@@ -3,6 +3,7 @@ html {
 }
 
 body {
+    font-size: 1.6rem;
     font-family: $oswald;
     color: $primaryText;
     background: linear-gradient(rgba($backgroundSecondary, $alpha: 0.7)), url(../assets/backgroundTexture.jpg);
@@ -19,6 +20,20 @@ ul {
 h1, h2  {
     margin: 0;
     padding: 0;
+}
+
+a {
+    color: $primaryText;
+}
+
+label:hover, label:focus {
+    color: $accentColor;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
 }
 
 .wrapper {

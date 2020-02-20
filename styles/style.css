@@ -240,8 +240,9 @@ html {
 }
 
 body {
+  font-size: 1.6rem;
   font-family: "Oswald", sans-serif;
-  color: #fff;
+  color: #f8f8f8;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(128, 128, 128, 0.7))), url(../assets/backgroundTexture.jpg);
   background: linear-gradient(rgba(128, 128, 128, 0.7)), url(../assets/backgroundTexture.jpg);
   background-size: cover;
@@ -259,6 +260,21 @@ h1, h2 {
   padding: 0;
 }
 
+a {
+  color: #f8f8f8;
+}
+
+label:hover, label:focus {
+  color: #ffd900;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .wrapper {
   max-width: 1280px;
   width: 80%;
@@ -272,7 +288,7 @@ img {
 
 header {
   background: #083458;
-  color: #fff;
+  color: #f8f8f8;
   text-transform: uppercase;
   border-bottom: 6px solid #ffd900;
 }
@@ -325,7 +341,7 @@ header {
 }
 
 .fabs a:visited {
-  color: #fff;
+  color: #f8f8f8;
 }
 
 .fabs a:hover {
@@ -549,9 +565,118 @@ footer {
   background: #302f2f;
 }
 
+
 footer p {
   font-family: arial;
   text-align: center;
   margin: 0;
   padding: 5px 0;
+}
+
+.selectionsBtn button:focus {
+  border-color: #63B92E;
+}
+
+.selectionsBtn button:hover {
+  cursor: pointer;
+
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(3, 21, 36, 0.95);
+}
+
+.modal.isOpen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 1;
+}
+
+.modal.isOpen:not(:focus-within) {
+  opacity: 0.999;
+  -webkit-transition: opacity 0.001s;
+  transition: opacity 0.001s;
+}
+
+.detailWindow {
+  position: relative;
+}
+
+.exit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(100%, -100%);
+          transform: translate(100%, -100%);
+  background: none;
+  border: none;
+  color: #f8f8f8;
+  font-size: 4.0rem;
+}
+
+.exit:hover, .exit:focus {
+  color: #ffd900;
+}
+
+.warplaneDetails {
+  background: #272727;
+  border: 2px #131313 ridge;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 20px;
+}
+
+.warplaneDetails h3 {
+  background: #031524;
+  border-bottom: 2px #ffd900 solid;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  margin-top: 0;
+  padding: 10px;
+}
+
+.pictureAndText {
+  margin-right: 20px;
+  width: calc(75% - 20px);
+}
+
+.planeStats {
+  width: 25%;
+}
+
+.planePicture {
+  background: url("../assets/skyBackground.jpg");
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+
+.planePicture img {
+  margin: 0 auto;
+}
+
+.warplanesContainer li:focus {
+  outline: 2px #ffd900 solid;
 }
