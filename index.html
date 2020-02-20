@@ -27,11 +27,16 @@
 
 
   <main>
+    <div class="modal">
+      <button class="exit" tabindex="1">exit</button>
+      <div class="warplaneDetails">
+
+      </div>
+    </div>
     <section class="options">
       <div class="wrapper">
         <div class="container">
           <div class="formHolder">
-
             <form action="">
               <div class="selections selectionsRadio">
                 <h2>Nation</h2>
@@ -43,8 +48,6 @@
 
                 <input type="radio" name="nation" id="uk">
                 <label for="uk">UK</label>
-
-
               </div>
 
 
@@ -55,14 +58,10 @@
                 <label for="bomber">Bomber</label>
 
                 <input type="radio" name="type" id="fighter">
-                <label for="fighter">Fighter</label> 
+                <label for="fighter">Fighter</label>
 
                 <input type="radio" name="type" id="assault">
                 <label for="assault">Assault</label>
-
-
-
-
               </div>
 
 
@@ -72,7 +71,7 @@
                   <i class="fas fa-chevron-down"></i>
                   <option value="dps">Fire Power</option>
                   <option value="hp">Hit Points</option>
-                  <option value="max_speed">Max</option>
+                  <option value="max_speed">Max Speed</option>
                   <option value="maneuverability">Maneuverability</option>
                   <option value="mass">Weight</option>
                 </select>
@@ -85,10 +84,8 @@
             </form>
           </div>
         </div>
+      </div>
     </section>
-
-
-
     <section class="results">
       <div class="wrapper">
         <div>
@@ -97,57 +94,18 @@
 
         <ul class="warplanesContainer">
           <!-- Results go here!!!!!!!  -->
-          <!-- Modal -->
-
-
-
-
         </ul>
+
       </div>
     </section>
-
-
-    <div class="warplaneDetails">
-      <div class="pictureAndText">
-
-        <div class="planePicture">
-          <img src="" alt=""> <!-- plane image goes here-->
-        </div>
-
-        <div class="planeDescription">
-          <h3>
-            <!-- plane name goes here-->
-          </h3>
-          <p>
-            <!-- plane description goes here-->
-          </p>
-        </div>
-      </div>
-
-      <div class="planeStats">
-        <h3>Stats</h3>
-
-        <ul>
-          <!-- dynamically added stats-->
-        </ul>
-
-      </div>
-    </div>
-
-    </div>
   </main>
 
   <footer>
-    <p>Wargaming &copy; 2020</p>
+    <p>&copy; Wargaming 2020</p>
   </footer>
-
-
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-
-  <script src="scripts/script.js"></script>
-
   
-
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script src="scripts/script.js"></script>
 </body>
 
 </html>
