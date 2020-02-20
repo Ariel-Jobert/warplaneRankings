@@ -1,8 +1,9 @@
-const warplaneRankings = {}
+const warplaneRankings = {};
 
 warplaneRankings.apiKey = 'fb723aa882d3a2fa5be1190069572588';
 
 warplaneRankings.maxResults = 8;
+// warplaneRankings.modalOpen = false;
 
 warplaneRankings.displayResults = function () {
     let htmlToAppend = '';
@@ -33,16 +34,62 @@ warplaneRankings.sortByStat = function(chosenStat) {
         // planeA.stats or planeB.stats doesn't actually exist, these are just pseudo code examples
         return planeB.features[chosenStat] - planeA.features[chosenStat];
     });
-}
+};
 
 // Add event listeners to results
 warplaneRankings.addListeners = function(element) {
+    const $planeDetails = warplaneRankings.$modal.find('.warplaneDetails');
+    console.log($planeDetails);
+    
     element.on('click', function() {
+        warplaneRankings.$modal.css('display', 'block').addClass('isOpen');
+        
+        // warplaneRankings.modalOpen = true;
         // stores the index of the clicked plane
         const $planeIndex = parseInt($(this).attr('data-index'));
-        console.log(warplaneRankings.planeResults[$planeIndex]);
+        
+        const htmlString = `
+        <div class="pictureAndText">
+            <div class="planePicture">
+                <img src="${warplaneRankings.planeResults[$planeIndex].images.large}" alt="${warplaneRankings.planeResults[$planeIndex].name}"> <!-- plane image goes here-->
+            </div>
+            <div class="planeDescription">
+                <h3>${warplaneRankings.planeResults[$planeIndex].name}</h3>
+                <p>${warplaneRankings.planeResults[$planeIndex].description}</p>
+            </div>
+        </div>
+        <div class="planeStats">
+            <h3>Stats</h3>
+            <ul>
+                
+            </ul>
+        </div>
+        `;
+
+        $planeDetails.html(htmlString);
+
+        // variable that holds the HTML for the stats
+        let statString = '';
+
+        // Generates blocks and assigns contents based on the options available to user
+        $('#stats option').each(function() {
+            statString += `
+                <li>
+                    <h4>${$(this).text()}</h4>
+                    <p>${warplaneRankings.planeResults[$planeIndex].features[$(this).val()]}</p>
+                </li>
+            `;
+        });
+
+        $('.planeStats ul').html(statString);
+
+        // adds appropriate suffix to the stat numbers
+        $('h4:contains("Fire Power")').next().append(' DPS');
+        $('h4:contains("Max Speed")').next().append(' km/h');
+        $('h4:contains("Weight")').next().append(' kg');
+
     });
-}
+};
 
 warplaneRankings.getPlaneStats = function (planeIds) {
     $.ajax({
@@ -61,7 +108,7 @@ warplaneRankings.getPlaneStats = function (planeIds) {
         warplaneRankings.addListeners($('.warplanesContainer li'));
         console.log(warplaneRankings.planeResults);
     })
-}
+};
 
 warplaneRankings.getPlaneData = function (nation, type) {
     $.ajax({
@@ -77,10 +124,13 @@ warplaneRankings.getPlaneData = function (nation, type) {
         const planeIds = Object.keys(response.data);
         warplaneRankings.getPlaneStats(planeIds.join(','));
     })
-}
+};
 
 warplaneRankings.init = function () {
-    $('form').on('submit', function (e) {
+    warplaneRankings.$modal = $('.modal');
+    warplaneRankings.$exit = $('.exit');
+
+    $('form').on('submit', function(e) {
         e.preventDefault();
         const $userNation = $('input[name = nation]:checked').attr('id');
         const $userType = $('input[name = type]:checked').attr('id');
@@ -95,6 +145,22 @@ warplaneRankings.init = function () {
             warplaneRankings.sortByStat($(this).val());
             warplaneRankings.displayResults();
         }
+    });
+
+    // temporary for testing: hides modal when clicked
+    warplaneRankings.$modal.on('click', function() {
+        $(this).css('display', 'none').removeClass('isOpen');
+        // warplaneRankings.modalOpen = false;
+    });
+
+    warplaneRankings.$modal.on('transitionend', function() {
+        console.log("transition ended");
+        warplaneRankings.$exit.focus();
+    });
+
+    warplaneRankings.$exit.on('click', function() {
+        warplaneRankings.$modal.css('display', 'none').removeClass('isOpen');
+        // warplaneRankings.modalOpen = false;
     });
 }
 
