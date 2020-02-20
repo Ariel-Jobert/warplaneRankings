@@ -1,4 +1,4 @@
-.warplaneDetails {
+.modal {
   display: none;
 
   position: fixed;
@@ -10,4 +10,17 @@
 
   background: black;
   color: white;
+}
+
+.modal.isOpen {
+  opacity: 1;
+}
+
+.modal.isOpen:not(:focus-within){
+  opacity: 0.999;
+  transition: opacity 0.001s;
+}
+
+.warplaneDetails {
+  @include centerFlex();
 }

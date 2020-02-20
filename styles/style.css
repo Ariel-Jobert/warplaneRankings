@@ -235,7 +235,7 @@ html {
   overflow: hidden;
 }
 
-.warplaneDetails {
+.modal {
   display: none;
   position: fixed;
   top: 0;
@@ -244,4 +244,26 @@ html {
   height: 100%;
   background: black;
   color: white;
+}
+
+.modal.isOpen {
+  opacity: 1;
+}
+
+.modal.isOpen:not(:focus-within) {
+  opacity: 0.999;
+  -webkit-transition: opacity 0.001s;
+  transition: opacity 0.001s;
+}
+
+.warplaneDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }

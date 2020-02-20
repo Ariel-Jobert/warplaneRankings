@@ -1,8 +1,9 @@
-const warplaneRankings = {}
+const warplaneRankings = {};
 
 warplaneRankings.apiKey = 'fb723aa882d3a2fa5be1190069572588';
 
 warplaneRankings.maxResults = 8;
+// warplaneRankings.modalOpen = false;
 
 warplaneRankings.displayResults = function () {
     let htmlToAppend = '';
@@ -33,14 +34,17 @@ warplaneRankings.sortByStat = function(chosenStat) {
         // planeA.stats or planeB.stats doesn't actually exist, these are just pseudo code examples
         return planeB.features[chosenStat] - planeA.features[chosenStat];
     });
-}
+};
 
 // Add event listeners to results
 warplaneRankings.addListeners = function(element) {
-    const $planeDetails = $('.warplaneDetails');
+    const $planeDetails = warplaneRankings.$modal.find('.warplaneDetails');
+    console.log($planeDetails);
     
     element.on('click', function() {
-        $planeDetails.css('display', 'block');
+        warplaneRankings.$modal.css('display', 'block').addClass('isOpen');
+        
+        // warplaneRankings.modalOpen = true;
         // stores the index of the clicked plane
         const $planeIndex = parseInt($(this).attr('data-index'));
         
@@ -62,7 +66,7 @@ warplaneRankings.addListeners = function(element) {
         </div>
         `;
 
-        $('.warplaneDetails').html(htmlString);
+        $planeDetails.html(htmlString);
 
         // variable that holds the HTML for the stats
         let statString = '';
@@ -85,7 +89,7 @@ warplaneRankings.addListeners = function(element) {
         $('h4:contains("Weight")').next().append(' kg');
 
     });
-}
+};
 
 warplaneRankings.getPlaneStats = function (planeIds) {
     $.ajax({
@@ -104,7 +108,7 @@ warplaneRankings.getPlaneStats = function (planeIds) {
         warplaneRankings.addListeners($('.warplanesContainer li'));
         console.log(warplaneRankings.planeResults);
     })
-}
+};
 
 warplaneRankings.getPlaneData = function (nation, type) {
     $.ajax({
@@ -120,10 +124,13 @@ warplaneRankings.getPlaneData = function (nation, type) {
         const planeIds = Object.keys(response.data);
         warplaneRankings.getPlaneStats(planeIds.join(','));
     })
-}
+};
 
 warplaneRankings.init = function () {
-    $('form').on('submit', function (e) {
+    warplaneRankings.$modal = $('.modal');
+    warplaneRankings.$exit = $('.exit');
+
+    $('form').on('submit', function(e) {
         e.preventDefault();
         const $userNation = $('input[name = nation]:checked').attr('id');
         const $userType = $('input[name = type]:checked').attr('id');
@@ -141,8 +148,19 @@ warplaneRankings.init = function () {
     });
 
     // temporary for testing: hides modal when clicked
-    $('.warplaneDetails').on('click', function() {
-        $(this).css('display', 'none');
+    warplaneRankings.$modal.on('click', function() {
+        $(this).css('display', 'none').removeClass('isOpen');
+        // warplaneRankings.modalOpen = false;
+    });
+
+    warplaneRankings.$modal.on('transitionend', function() {
+        console.log("transition ended");
+        warplaneRankings.$exit.focus();
+    });
+
+    warplaneRankings.$exit.on('click', function() {
+        warplaneRankings.$modal.css('display', 'none').removeClass('isOpen');
+        // warplaneRankings.modalOpen = false;
     });
 }
 
