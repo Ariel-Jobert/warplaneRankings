@@ -259,6 +259,10 @@ a {
   color: #f8f8f8;
 }
 
+label:hover, label:focus {
+  color: #ffd900;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -468,6 +472,10 @@ select {
   font-size: 0.75rem;
 }
 
+.selectionsBtn button:focus {
+  border-color: #63B92E;
+}
+
 .selectionsBtn button:hover {
   cursor: pointer;
 }
@@ -565,4 +573,8 @@ select {
 
 .planePicture img {
   margin: 0 auto;
+}
+
+.warplanesContainer li:focus {
+  outline: 2px #ffd900 solid;
 }

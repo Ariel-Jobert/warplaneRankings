@@ -4,6 +4,7 @@
     $backgroundSecondary: #808080;
     $backgroundTertiary: #272727;
     $accentColor: #ffd900;
+    $accentSecondary: #63B92E;
     $primaryText: #f8f8f8;
     $borderPrimary: #131313;
 
@@ -40,6 +41,10 @@
         &:active {
             background-image: radial-gradient(red, rgb(116, 5, 5));
             font-size: 0.75rem;
+        }
+
+        &:focus {
+            border-color: $accentSecondary;
         }
 }
 

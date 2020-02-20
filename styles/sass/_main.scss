@@ -41,7 +41,7 @@
 input[type=radio] {
     display: none;
         &:checked + label {
-            color: #63B92E;
+            color: $accentSecondary;
         }
     } 
 
@@ -176,4 +176,8 @@ select {
   img {
     margin: 0 auto;
   }
+}
+
+.warplanesContainer li:focus {
+  outline: 2px $accentColor solid;
 }
