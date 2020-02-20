@@ -17,6 +17,12 @@ h1, h2  {
     padding: 0;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+}
+
 .wrapper {
     max-width: 1280px;
     width: 80%;
