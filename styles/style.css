@@ -239,8 +239,11 @@ body {
   color: blueviolet;
 }
 
-body {
+html {
   font-size: 62.5%;
+}
+
+body {
   font-family: "Oswald", sans-serif;
   color: #fff;
 }
@@ -253,6 +256,13 @@ ul {
 h1, h2 {
   margin: 0;
   padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .wrapper {
@@ -326,10 +336,10 @@ header {
 
 .options {
   height: 70vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(128, 128, 128, 0.7))), url(../assets/backgroundTexture.jpg);
-  background: linear-gradient(rgba(128, 128, 128, 0.7)), url(../assets/backgroundTexture.jpg);
   background-size: cover;
   background-position: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(128, 128, 128, 0.7))), url(../assets/backgroundTexture.jpg);
+  background: linear-gradient(rgba(128, 128, 128, 0.7)), url(../assets/backgroundTexture.jpg);
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -423,30 +433,6 @@ select {
 
 .selectionsBtn {
   width: 100%;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  color: white;
-}
-
-.modal.isOpen {
-  opacity: 1;
-}
-
-.modal.isOpen:not(:focus-within) {
-  opacity: 0.999;
-  -webkit-transition: opacity 0.001s;
-  transition: opacity 0.001s;
-}
-
-.warplaneDetails {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -483,4 +469,66 @@ select {
 
 .selectionsBtn button:hover {
   cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(3, 21, 36, 0.95);
+}
+
+.modal.isOpen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 1;
+}
+
+.modal.isOpen:not(:focus-within) {
+  opacity: 0.999;
+  -webkit-transition: opacity 0.001s;
+  transition: opacity 0.001s;
+}
+
+.detailWindow {
+  position: relative;
+}
+
+.exit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(100%, -100%);
+          transform: translate(100%, -100%);
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 4.0rem;
+}
+
+.exit:hover, .exit:focus {
+  color: #ffd900;
+}
+
+.warplaneDetails {
+  background: #272727;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }

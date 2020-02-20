@@ -1,8 +1,8 @@
 .options {
     height: 70vh;
-    background: linear-gradient(rgba($backgroundSecondary, $alpha: 0.7)), url(../assets/backgroundTexture.jpg);
     background-size: cover;
     background-position: center;
+    background: linear-gradient(rgba($backgroundSecondary, $alpha: 0.7)), url(../assets/backgroundTexture.jpg);
     background-color: rgba(0, 0, 0, 0.5);
         .container {
             @include centerFlex;
@@ -91,6 +91,7 @@ select {
         }
 }
 
+// Modal styles
 .modal {
   display: none;
 
@@ -101,11 +102,11 @@ select {
   width: 100%;
   height: 100%;
 
-  background: black;
-  color: white;
+  background: rgba($backgroundPrimary, 0.95);
 }
 
 .modal.isOpen {
+  @include centerFlex();
   opacity: 1;
 }
 
@@ -114,6 +115,30 @@ select {
   transition: opacity 0.001s;
 }
 
+.detailWindow {
+  position: relative;
+}
+
+.exit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(100%,-100%);
+
+  background: none;
+  border: none;
+
+  color: $primaryText;
+  font-size: 4.0rem;
+}
+
+.exit:hover, .exit:focus {
+  color: $accentColor;
+}
+
 .warplaneDetails {
-  @include centerFlex();
+  background: $backgroundTertiary;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }

@@ -1,5 +1,8 @@
-body {
+html {
     font-size: 62.5%;
+}
+
+body {
     font-family: $oswald;
     color: $primaryText;
 }
@@ -12,6 +15,12 @@ ul {
 h1, h2  {
     margin: 0;
     padding: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
 }
 
 .wrapper {

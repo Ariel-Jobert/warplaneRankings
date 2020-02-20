@@ -42,8 +42,7 @@ warplaneRankings.addListeners = function(element) {
     console.log($planeDetails);
     
     element.on('click', function() {
-        warplaneRankings.$modal.css('display', 'block').addClass('isOpen');
-        
+        warplaneRankings.$modal.addClass('isOpen');
         // warplaneRankings.modalOpen = true;
         // stores the index of the clicked plane
         const $planeIndex = parseInt($(this).attr('data-index'));
@@ -130,6 +129,16 @@ warplaneRankings.init = function () {
     warplaneRankings.$modal = $('.modal');
     warplaneRankings.$exit = $('.exit');
 
+    const tabbing = function(e) {
+        if(warplaneRankings.$modal.hasClass('isOpen')) {
+            if(e.keyCode === 9){
+                warplaneRankings.$exit.focus();
+            }
+        }
+    }
+
+    $(window).keydown(tabbing);
+
     $('form').on('submit', function(e) {
         e.preventDefault();
         const $userNation = $('input[name = nation]:checked').attr('id');
@@ -149,7 +158,7 @@ warplaneRankings.init = function () {
 
     // temporary for testing: hides modal when clicked
     warplaneRankings.$modal.on('click', function() {
-        $(this).css('display', 'none').removeClass('isOpen');
+        $(this).removeClass('isOpen');
         // warplaneRankings.modalOpen = false;
     });
 
@@ -159,7 +168,7 @@ warplaneRankings.init = function () {
     });
 
     warplaneRankings.$exit.on('click', function() {
-        warplaneRankings.$modal.css('display', 'none').removeClass('isOpen');
+        warplaneRankings.$modal.removeClass('isOpen');
         // warplaneRankings.modalOpen = false;
     });
 }
