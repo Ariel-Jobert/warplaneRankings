@@ -22,6 +22,10 @@ a {
     color: $primaryText;
 }
 
+label:hover, label:focus {
+    color: $accentColor;
+}
+
 img {
     display: block;
     max-width: 100%;
