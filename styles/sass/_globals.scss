@@ -9,31 +9,13 @@ ul {
     padding-left: 0;
 }
 
-.wrapper {
-    max-width: 1280px;
-    width: 80%;
-    margin: 0 auto;
-}
-
 h1, h2  {
     margin: 0;
     padding: 0;
 }
 
-button {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    display:block;
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    border: 5px outset $backgroundSecondary;
-    background-image: radial-gradient(red, rgb(102, 8, 8));
-    font-weight: 600;
-    transition: 0.2s;
-        &:active {
-            background-image: radial-gradient(red, rgb(116, 5, 5));
-            font-size: 0.75rem;
-        }
-
+.wrapper {
+    max-width: 1280px;
+    width: 80%;
+    margin: 0 auto;
 }

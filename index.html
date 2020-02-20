@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Mono&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/5568dacc53.js" crossorigin="anonymous"></script>
   <title>WoWP | Warplane Rankings</title>
 </head>
@@ -28,7 +28,6 @@
 
   <main>
     <section class="options">
-      <div class="overlay"></div>
       <div class="wrapper">
         <div class="container">
           <div class="formHolder">
@@ -45,23 +44,6 @@
                 <input type="radio" name="nation" id="uk">
                 <label for="uk">UK</label>
 
-                <!-- *****************************************SAMPLE TEST  -->
-<!-- 
-                <div class="radioWrapper" id="countryWrap1">
-                  <input type="radio" name="nation" id="usa">
-                  <label for="usa">USA</label>
-                </div>
-
-                <div class="radioWrapper" id="countryWrap2">
-                  <input type="radio" name="nation" id="germany">
-                  <label for="germany">Germany</label>
-                </div>
-
-                <div class="radioWrapper" id="countryWrap3">
-                  <input type="radio" name="nation" id="uk">
-                  <label for="uk">UK</label>
-                </div> -->
-
 
               </div>
 
@@ -70,32 +52,13 @@
               <div class="selections selectionsRadio">
                 <h2>Plane Type</h2>
                 <input type="radio" name="type" id="bomber">
-                <label for="bomber">Bomber</label> -->
+                <label for="bomber">Bomber</label>
 
                 <input type="radio" name="type" id="fighter">
-                <label for="figther">Fighter</label> 
+                <label for="fighter">Fighter</label> 
 
                 <input type="radio" name="type" id="assault">
                 <label for="assault">Assault</label>
-
-
-                <!-- *****************************************SAMPLE TEST  -->
-                <!-- <div class="radioWrapper" id="typeWrap1">
-                  <input type="radio" name="type" id="bomber">
-                  <label for="bomber">Bomber</label>
-                </div>
-
-                <div class="radioWrapper" id="typeWrap2">
-                  <input type="radio" name="type" id="fighter">
-                  <label for="fighter">Fighter</label>
-                </div>
-
-                <div class="radioWrapper" id="typeWrap3">
-                  <input type="radio" name="type" id="assault">
-                  <label for="assault">Assault</label>
-                </div> -->
-
-                <!-- *****************************************SAMPLE TEST  -->
 
 
 
@@ -106,11 +69,12 @@
               <div class="selections selectionsDrop">
                 <label for="stats">Sort by</label>
                 <select name="stats" id="stats">
-                  <option value="dps">Fire Power</option>
-                  <option value="hp">Hit Points</option>
-                  <option value="max_speed">Max</option>
-                  <option value="maneuverability">Maneuverability</option>
-                  <option value="mass">Weight</option>
+                  <i class="fas fa-chevron-down"></i>
+                  <option value="dps">FIRE POWER</option>
+                  <option value="hp">HIT POINTS</option>
+                  <option value="max_speed">MAX</option>
+                  <option value="maneuverability">MANEUVERABILITY</option>
+                  <option value="mass">WEIGHT</option>
                 </select>
               </div>
 
