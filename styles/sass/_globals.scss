@@ -6,6 +6,10 @@ body {
     font-size: 1.6rem;
     font-family: $oswald;
     color: $primaryText;
+    background: linear-gradient(rgba($backgroundSecondary, $alpha: 0.7)), url(../assets/backgroundTexture.jpg);
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 ul {
@@ -36,4 +40,9 @@ img {
     max-width: 1280px;
     width: 80%;
     margin: 0 auto;
+}
+
+img {
+    margin: 0;
+    width: 100%;
 }
