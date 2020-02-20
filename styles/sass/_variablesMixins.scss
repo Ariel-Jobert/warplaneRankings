@@ -27,7 +27,7 @@
     @mixin redAlertButton{
     text-transform: uppercase;
     font-family: $mono;
-    font-size: 0.8rem;
+    font-size: 1.5rem;
     display:block;
     height: 80px;
     width: 80px;
@@ -43,6 +43,3 @@
 }
 
 
-body {
-    color: blueviolet;
-}

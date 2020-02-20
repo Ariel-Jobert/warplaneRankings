@@ -16,11 +16,11 @@ header {
             text-align: center;
         }
             h1 {
-                font-size: 6rem;  
+                font-size: 11rem;  
                 letter-spacing: -4px;
             }
                 h2 {
-                    font-size: 2rem;
+                    font-size: 3rem;
                     letter-spacing: 2px;
                     background: $backgroundSecondary;
                 }
@@ -31,7 +31,7 @@ header {
     // display: flex;
     // justify-content: center;
     @include centerFlex;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     margin: 10px 0;
     li {
         padding: 0 10px; 

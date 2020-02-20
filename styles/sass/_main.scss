@@ -9,7 +9,6 @@
             max-width: 700px;
             width: 100%;
             text-transform: uppercase;
-            font-size: 1.2rem;
             background: rgba(0,0,0,0.7);
             box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
             border-radius: 0 0 7px 7px;
@@ -26,14 +25,14 @@
     @include centerFlex;
     margin-bottom: 20px;
     font-family: $mono;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     text-align: center;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 20px;
         h2 {
             font-family: $oswald;
-            font-size: 2rem;
+            font-size: 2.9rem;
             color: $accentColor;
             width: 25%;
         }
@@ -57,7 +56,6 @@ label {
     cursor: default;
 }
 
-
 select {
     // -webkit-appearance: none;
     // -moz-appearance: none;
@@ -74,8 +72,8 @@ select {
     background-repeat: no-repeat; 
     background-size: 20px; 
     cursor: pointer; 
+    text-transform: uppercase;
 }
-
 
 .selectionsBtn {
     width: 100%;
