@@ -425,6 +425,7 @@ select {
   font-family: "PT Mono", monospace;
   font-weight: 600;
   text-align: center;
+  text-transform: uppercase;
   background: #808080;
   background-image: url("");
   /* Add custom arrow */
@@ -432,7 +433,6 @@ select {
   background-repeat: no-repeat;
   background-size: 20px;
   cursor: pointer;
-  text-transform: uppercase;
 }
 
 .selectionsBtn {

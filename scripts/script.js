@@ -3,10 +3,11 @@ const warplaneRankings = {};
 warplaneRankings.apiKey = 'fb723aa882d3a2fa5be1190069572588';
 
 warplaneRankings.maxResults = 8;
-// warplaneRankings.modalOpen = false;
 
 warplaneRankings.displayResults = function () {
     let htmlToAppend = '';
+
+    // Build the list to display
     warplaneRankings.planeResults.forEach(function(plane, i){
         if (i >= warplaneRankings.maxResults) {
             return;
@@ -101,14 +102,18 @@ warplaneRankings.getPlaneStats = function (planeIds) {
             plane_id: planeIds
         }
     }).then(function (response) {
+        // Store the plane objects from the response
         warplaneRankings.planeResults = Object.values(response.data);
         
+        // Sort the planeResults array based on user's stat choice
         warplaneRankings.sortByStat($('#stats').val());
         warplaneRankings.displayResults();
         warplaneRankings.addListeners($('.warplanesContainer li'));
-        console.log(warplaneRankings.planeResults);
+
+        // Scroll to the top of the results  section
         $('html, body').animate({scrollTop: $('.results').offset().top}, 500);
     }).catch(function(error) {
+        // Display this when response is no good
         let htmlToAppend = `    
             <p class="errorNote">Your inquiry was not found.</p>
         `;
@@ -129,6 +134,7 @@ warplaneRankings.getPlaneData = function (nation, type) {
         }
     }).then(function (response) {
         const planeIds = Object.keys(response.data);
+        // planeIds is seperated with commas
         warplaneRankings.getPlaneStats(planeIds.join(','));
     })
 };
@@ -137,16 +143,19 @@ warplaneRankings.init = function () {
     warplaneRankings.$modal = $('.modal');
     warplaneRankings.$exit = $('.exit');
 
+    // Logic for the keyboard user
     const usingKeyboard = function(e) {
         if(warplaneRankings.$modal.hasClass('isOpen')) {
             if(e.keyCode === 9){
                 warplaneRankings.$exit.focus();
             }
         } else if ($('.warplanesContainer li').is(':focus') && e.keyCode === 13) {
+            // Pressing enter while a result is focussed opens detailed info
             warplaneRankings.previousIndex = parseInt($(':focus').attr('data-index'));
             warplaneRankings.setDetails(warplaneRankings.previousIndex);
             warplaneRankings.$modal.addClass('isOpen');
         } else if ($('label').is(':focus') && e.keyCode === 13) {
+            // Pressing enter while a label is focussed will check its respective input
             const $id = $(':focus').attr('for');
             $(`#${$id}`).prop('checked',true);
         }
@@ -158,6 +167,7 @@ warplaneRankings.init = function () {
         e.preventDefault();
         const $userNation = $('input[name = nation]:checked').attr('id');
         const $userType = $('input[name = type]:checked').attr('id');
+        // Only call API when user submits information
         warplaneRankings.getPlaneData($userNation, $userType);
     });
 
@@ -172,17 +182,17 @@ warplaneRankings.init = function () {
         }
     });
 
-    // temporary for testing: hides modal when clicked
+    // Hides modal when clicked
     warplaneRankings.$modal.on('click', function() {
         $(this).removeClass('isOpen');
-        // warplaneRankings.modalOpen = false;
     });
 
+    // Puts focus back on exit button when focus leaves modal
     warplaneRankings.$modal.on('transitionend', function() {
-        console.log("transition ended");
         warplaneRankings.$exit.focus();
     });
 
+    // When exit button is clicked on modal, hide it and return focus to the last focus index
     warplaneRankings.$exit.on('click', function() {
         warplaneRankings.$modal.removeClass('isOpen');
         $(`li[data-index=${warplaneRankings.previousIndex}]`).focus();
