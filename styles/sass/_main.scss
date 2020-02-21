@@ -62,7 +62,6 @@ select {
     text-transform: uppercase;
 
     background: $backgroundSecondary;
-    background-image: url(""); /* Add custom arrow */
     background-position: right;
     background-repeat: no-repeat; 
     background-size: 20px; 
@@ -115,7 +114,6 @@ select {
             background-position: center;
             background-size: cover;
             width: calc(25% - 4px);
-            // border: 3px solid black;
             box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
             border-radius: 7px;                    
                     h3 {
