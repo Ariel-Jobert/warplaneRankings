@@ -1,5 +1,4 @@
 header {
-    // height: 30vh;
     background: $backgroundPrimary;
     color: $primaryText;
     text-transform: uppercase;
@@ -28,8 +27,6 @@ header {
 
 .fabs {
     width: 100%;
-    // display: flex;
-    // justify-content: center;
     @include centerFlex;
     font-size: 1.8rem;
     margin: 10px 0;

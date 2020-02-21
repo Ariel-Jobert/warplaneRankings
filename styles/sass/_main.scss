@@ -1,5 +1,4 @@
 .options {
-    // height: 70vh;
         .container {
             @include centerFlex;
             max-width: 700px;
@@ -53,22 +52,22 @@ label {
 }
 
 select {
-    // -webkit-appearance: none;
-    // -moz-appearance: none;
     padding: 5px;
     border: none;
-    border-radius: 4px;
-    // appearance: none;       
+    border-radius: 4px;  
+
     font-family: $mono;
     font-weight: 600;
     text-align: center;
+    text-transform: uppercase;
+
     background: $backgroundSecondary;
     background-image: url(""); /* Add custom arrow */
     background-position: right;
     background-repeat: no-repeat; 
     background-size: 20px; 
+
     cursor: pointer; 
-    text-transform: uppercase;
 }
 
 .selectionsBtn {
