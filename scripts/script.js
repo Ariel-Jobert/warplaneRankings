@@ -107,6 +107,7 @@ warplaneRankings.getPlaneStats = function (planeIds) {
         warplaneRankings.displayResults();
         warplaneRankings.addListeners($('.warplanesContainer li'));
         console.log(warplaneRankings.planeResults);
+        $('html, body').animate({scrollTop: $('.results').offset().top}, 500);
     }).catch(function(error) {
         let htmlToAppend = `    
             <p class="errorNote">Your inquiry was not found.</p>
