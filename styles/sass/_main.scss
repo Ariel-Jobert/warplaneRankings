@@ -79,9 +79,6 @@ select {
     padding: 0;
         button {
             @include redAlertButton;
-                &:hover {
-                    cursor: pointer; 
-                }
         }
 }
 
@@ -128,11 +125,16 @@ select {
                         background: lighten($backgroundPrimary, 15%);
                         margin-top: 0;
                         padding: 10px 0;
-                    }    
+                    }
+            &:hover {
+              cursor: pointer;
+            }
         }
 }
 
-
+.warplanesContainer li:focus {
+  border: 4px $accentColor solid;
+}
 
 // Modal styles
 .modal {
@@ -153,10 +155,10 @@ select {
   opacity: 1;
 }
 
-    .modal.isOpen:not(:focus-within){
-    opacity: 0.999;
-    transition: opacity 0.001s;
-    }
+.modal.isOpen:not(:focus-within){
+  opacity: 0.999;
+  transition: opacity 0.001s;
+}
 
 .detailWindow {
   position: relative;
@@ -210,6 +212,12 @@ select {
 
 .planeStats {
   width: 25%;
+  h4 {
+    text-transform: uppercase;
+  }
+  p {
+    font-family: $mono;
+  }
 }
 
 .planePicture {
@@ -223,6 +231,9 @@ select {
   }
 }
 
-.warplanesContainer li:focus {
-  outline: 2px $accentColor solid;
+.errorNote {
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 4rem;
+  text-align: center;
 }

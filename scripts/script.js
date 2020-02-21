@@ -107,7 +107,13 @@ warplaneRankings.getPlaneStats = function (planeIds) {
         warplaneRankings.displayResults();
         warplaneRankings.addListeners($('.warplanesContainer li'));
         console.log(warplaneRankings.planeResults);
-    })
+    }).catch(function(error) {
+        let htmlToAppend = `    
+            <p class="errorNote">Your inquiry was not found.</p>
+        `;
+
+        $('.warplanesContainer').html(htmlToAppend);
+    });
 };
 
 warplaneRankings.getPlaneData = function (nation, type) {

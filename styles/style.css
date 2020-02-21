@@ -275,15 +275,14 @@ img {
      object-fit: cover;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .wrapper {
   max-width: 1280px;
   width: 80%;
   margin: 0 auto;
-}
-
-img {
-  margin: 0;
-  width: 100%;
 }
 
 header {
@@ -472,8 +471,8 @@ select {
   font-size: 0.75rem;
 }
 
-.selectionsBtn button:hover {
-  cursor: pointer;
+.selectionsBtn button:focus {
+  border-color: #63B92E;
 }
 
 .results {
@@ -526,60 +525,12 @@ select {
   padding: 10px 0;
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  color: white;
-}
-
-.modal.isOpen {
-  opacity: 1;
-}
-
-.modal.isOpen:not(:focus-within) {
-  opacity: 0.999;
-  -webkit-transition: opacity 0.001s;
-  transition: opacity 0.001s;
-}
-
-.warplaneDetails {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-footer {
-  font-size: 1.5rem;
-  color: #fff;
-  background: #302f2f;
-}
-
-
-footer p {
-  font-family: arial;
-  text-align: center;
-  margin: 0;
-  padding: 5px 0;
-}
-
-.selectionsBtn button:focus {
-  border-color: #63B92E;
-}
-
-.selectionsBtn button:hover {
+.warplanesContainer li:hover {
   cursor: pointer;
+}
 
+.warplanesContainer li:focus {
+  border: 4px #ffd900 solid;
 }
 
 .modal {
@@ -589,7 +540,7 @@ footer p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(3, 21, 36, 0.95);
+  background: rgba(8, 52, 88, 0.95);
 }
 
 .modal.isOpen {
@@ -648,7 +599,7 @@ footer p {
 }
 
 .warplaneDetails h3 {
-  background: #031524;
+  background: #083458;
   border-bottom: 2px #ffd900 solid;
   text-align: center;
   text-transform: uppercase;
@@ -666,6 +617,14 @@ footer p {
   width: 25%;
 }
 
+.planeStats h4 {
+  text-transform: uppercase;
+}
+
+.planeStats p {
+  font-family: "PT Mono", monospace;
+}
+
 .planePicture {
   background: url("../assets/skyBackground.jpg");
   background-position: center;
@@ -677,6 +636,117 @@ footer p {
   margin: 0 auto;
 }
 
-.warplanesContainer li:focus {
-  outline: 2px #ffd900 solid;
+.errorNote {
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 4rem;
+  text-align: center;
+}
+
+footer {
+  font-size: 1.5rem;
+  color: #f8f8f8;
+  background: #302f2f;
+}
+
+footer p {
+  font-family: arial;
+  text-align: center;
+  margin: 0;
+  padding: 5px 0;
+}
+
+@media (max-width: 940px) {
+  .wrapper {
+    width: 100%;
+  }
+  .warplanesContainer li {
+    width: calc(50% - 4px);
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    border-bottom: 3px #ffd900 solid;
+  }
+  label {
+    font-size: 2rem;
+  }
+  .headerText h1 {
+    font-size: 7rem;
+    padding: 10px 0;
+  }
+  .selections {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .selections h2 {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .warplanesContainer li {
+    width: calc(50% - 4px);
+  }
+  .modal {
+    height: 100vh;
+  }
+  .warplaneDetails {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .pictureAndText, .planeStats {
+    width: 100%;
+  }
+  .pictureAndText {
+    margin: 0;
+  }
+  .pictureAndText .planeDescription p {
+    margin: 40px 0;
+  }
+  .planeStats h3 {
+    margin: 0;
+  }
+  .planeStats ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 0;
+  }
+  .planeStats ul li {
+    width: calc(100%/3);
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerText h1 {
+    font-size: 6rem;
+  }
+  .headerText h2 {
+    font-size: 2rem;
+  }
+  .selections {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .selections label {
+    width: 100%;
+    padding: 10px;
+  }
+  .warplanesContainer li {
+    width: 100%;
+  }
+  select {
+    font-size: 1.5rem;
+  }
 }
