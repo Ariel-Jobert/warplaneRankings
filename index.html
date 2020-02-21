@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Mono&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/5568dacc53.js" crossorigin="anonymous"></script>
   <title>WoWP | Warplane Rankings</title>
 </head>
 
@@ -14,122 +15,102 @@
     <div class="wrapper">
       <div class="headerText">
         <h1>World of Warplanes</h1>
-        <h2>War Plane Rankings</h2>
+        <h2>-War Plane Rankings-</h2>
       </div>
+      <ul class="fabs">
+        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+      </ul>
     </div>
   </header>
 
 
 
   <main>
+    <div class="modal">
+      <div class="wrapper">
+        <div class="detailWindow">
+          <button class="exit"><i class="far fa-times-circle"></i></button>
+          <div class="warplaneDetails">
+            <!-- Plane details go here -->
+          </div>
+        </div>
+      </div>
+    </div>
     <section class="options">
       <div class="wrapper">
         <div class="container">
           <div class="formHolder">
-
             <form action="">
-              <div class="selections">
+              <div class="selections selectionsRadio">
                 <h2>Nation</h2>
                 <input type="radio" name="nation" id="usa">
-                <label for="usa">USA</label>
+                <label for="usa" tabindex="0">USA</label>
 
                 <input type="radio" name="nation" id="germany">
-                <label for="germany">Germany</label>
+                <label for="germany" tabindex="0">Germany</label>
 
                 <input type="radio" name="nation" id="uk">
-                <label for="uk">UK</label>
+                <label for="uk" tabindex="0">UK</label>
               </div>
 
-              <div class="selections">
+
+
+              <div class="selections selectionsRadio">
                 <h2>Plane Type</h2>
                 <input type="radio" name="type" id="bomber">
-                <label for="bomber">Bomber</label>
+                <label for="bomber" tabindex="0">Bomber</label>
 
                 <input type="radio" name="type" id="fighter">
-                <label for="figther">Fighter</label>
+                <label for="fighter" tabindex="0">Fighter</label>
 
                 <input type="radio" name="type" id="assault">
-                <label for="assault">Assault</label>
+                <label for="assault" tabindex="0">Assault</label>
               </div>
 
-              <div class="selections">
+
+              <div class="selections selectionsDrop">
                 <label for="stats">Sort by</label>
                 <select name="stats" id="stats">
+                  <i class="fas fa-chevron-down"></i>
                   <option value="dps">Fire Power</option>
                   <option value="hp">Hit Points</option>
-                  <option value="max_speed">Max</option>
+                  <option value="max_speed">Max Speed</option>
                   <option value="maneuverability">Maneuverability</option>
                   <option value="mass">Weight</option>
                 </select>
               </div>
 
-              <div class="selections">
+              <div class="selections selectionsBtn">
                 <button type="submit">Search</button>
               </div>
 
             </form>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+    <section class="results">
 
-
-
-      <section class="results">
+      <div class="wrapper">
         <div>
           <h2>Results</h2>
         </div>
 
         <ul class="warplanesContainer">
           <!-- Results go here!!!!!!!  -->
-          <!-- Modal -->
-
-
-
-
         </ul>
-      </section>
 
-
-      <div class="warplaneDetails">
-        <div class="pictureAndText">
-
-          <div class="planePicture">
-            <img src="" alt=""> <!-- plane image goes here-->
-          </div>
-
-          <div class="planeDescription">
-            <h3>
-              <!-- plane name goes here-->
-            </h3>
-            <p>
-              <!-- plane description goes here-->
-            </p>
-          </div>
-        </div>
-
-        <div class="planeStats">
-          <h3>Stats</h3>
-          
-          <ul>
-            <!-- dynamically added stats-->
-          </ul>
-
-        </div>
       </div>
-
-    </div>
+    </section>
   </main>
 
   <footer>
-    <p>Wargaming &copy; 2020</p>
+    <p>&copy; Wargaming 2020</p>
   </footer>
-
-
+  
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-
   <script src="scripts/script.js"></script>
-
-
 </body>
 
 </html>

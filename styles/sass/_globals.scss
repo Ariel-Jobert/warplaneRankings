@@ -1,19 +1,46 @@
-body {
+html {
     font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
     font-family: $oswald;
+    color: $primaryText;
+    background: linear-gradient(rgba($backgroundSecondary, $alpha: 0.7)), url(../assets/backgroundTexture.jpg);
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 ul {
     list-style-type: none;
-}
-
-.wrapper {
-    max-width: 1280px;
-    width: 80%;
-    margin: 0 auto;
+    padding-left: 0;
 }
 
 h1, h2  {
     margin: 0;
     padding: 0;
+}
+
+a {
+    color: $primaryText;
+}
+
+label:hover, label:focus {
+    color: $accentColor;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+button:hover {
+    cursor: pointer;
+}
+.wrapper {
+    max-width: 1280px;
+    width: 80%;
+    margin: 0 auto;
 }

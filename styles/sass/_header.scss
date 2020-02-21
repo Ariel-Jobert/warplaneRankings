@@ -1,15 +1,51 @@
 header {
-    //height
-    background: $backgroundSecondary;
+    // height: 30vh;
+    background: $backgroundPrimary;
     color: $primaryText;
-    border-bottom: 10px solid $borderColor;
-        .headerText {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    text-transform: uppercase;
+    border-bottom: 6px solid $accentColor;
 }
+
+.headerText {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+        h1, h2 {
+            display: inline;
+            text-align: center;
+        }
+            h1 {
+                font-size: 11rem;  
+                letter-spacing: -4px;
+            }
+                h2 {
+                    font-size: 3rem;
+                    letter-spacing: 2px;
+                    background: $backgroundSecondary;
+                }
+}
+
+.fabs {
+    width: 100%;
+    // display: flex;
+    // justify-content: center;
+    @include centerFlex;
+    font-size: 1.8rem;
+    margin: 10px 0;
+    li {
+        padding: 0 10px; 
+    }
+        a:visited {
+            color:$primaryText;
+        }
+            a:hover {
+                color: $accentColor; 
+            }
+}
+
+
+
 
 
 
